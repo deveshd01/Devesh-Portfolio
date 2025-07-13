@@ -55,7 +55,7 @@ const BackgroundAnimation = () => {
     // Grid pattern
     const drawGrid = () => {
       const gridSize = 50;
-      ctx.strokeStyle = 'rgba(0, 255, 255, 0.1)';
+      ctx.strokeStyle = 'rgba(0, 255, 255, 0.07)';
       ctx.lineWidth = 0.5;
 
       for (let x = 0; x < canvas.width; x += gridSize) {

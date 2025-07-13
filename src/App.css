@@ -206,6 +206,18 @@ body {
   transform: translateY(0);
 }
 
+.hero-intro {
+  margin-bottom: 1rem;
+}
+
+.intro-greeting {
+  font-size: 1.2rem;
+  color: #00ffff;
+  font-weight: 500;
+  opacity: 0;
+  animation: fadeInLeft 0.8s ease forwards 0.2s;
+}
+
 .hero-title {
   font-size: 4rem;
   font-weight: 800;
@@ -222,11 +234,36 @@ body {
   animation: glow 2s ease-in-out infinite alternate;
 }
 
-.hero-subtitle {
-  font-size: 1.5rem;
+.hero-role {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.role-prefix {
+  font-size: 1.3rem;
+  color: #ccc;
+  font-weight: 500;
+}
+
+.role-animation {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.role-text {
+  font-size: 1.3rem;
   color: #00ffff;
-  margin-bottom: 1rem;
   font-weight: 600;
+}
+
+.role-cursor {
+  width: 2px;
+  height: 1.5rem;
+  background: #00ffff;
+  animation: blink 1s infinite;
 }
 
 .hero-description {
@@ -236,10 +273,37 @@ body {
   line-height: 1.6;
 }
 
+.hero-highlights {
+  margin-bottom: 2rem;
+}
+
+.tech-highlight {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: rgba(0, 255, 255, 0.1);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.highlight-label {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.highlight-tech {
+  font-size: 1rem;
+  color: #00ffff;
+  font-weight: 600;
+  animation: pulse 2s ease-in-out infinite;
+}
+
 .hero-stats {
   display: flex;
   gap: 2rem;
-  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .stat {
@@ -260,10 +324,18 @@ body {
   letter-spacing: 1px;
 }
 
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
 .hero-social-links {
   display: flex;
   gap: 1rem;
-  margin-top: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .hero-social-links .social-link {
@@ -295,10 +367,54 @@ body {
   font-size: 0.9rem;
 }
 
+.hero-cta {
+  display: flex;
+  align-items: center;
+}
+
+.cta-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #00ffff, #ff00ff);
+  color: #000;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 255, 255, 0.5);
+}
+
+.cta-arrow {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.cta-button:hover .cta-arrow {
+  transform: translateX(5px);
+}
+
 .hero-visual {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.visual-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
 .floating-card {
@@ -308,23 +424,95 @@ body {
   padding: 2rem;
   backdrop-filter: blur(10px);
   animation: float 6s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 400px;
 }
 
-.tech-stack {
-  display: flex;
-  flex-wrap: wrap;
+.card-header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #00ffff;
+  margin: 0;
+}
+
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
-  justify-content: center;
 }
 
 .tech-item {
-  background: linear-gradient(135deg, #00ffff, #ff00ff);
-  color: #000;
-  padding: 0.5rem 1rem;
-  border-radius: 25px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 10px;
+  padding: 0.75rem;
+  text-align: center;
   font-weight: 600;
-  font-size: 0.9rem;
-  animation: pulse 2s ease-in-out infinite;
+  color: #fff;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.tech-item.active {
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.1));
+  border-color: rgba(0, 255, 255, 0.5);
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+}
+
+.card-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(0, 255, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.floating-card:hover .card-glow {
+  opacity: 1;
+}
+
+.floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.element {
+  position: absolute;
+  font-size: 2rem;
+  animation: float 4s ease-in-out infinite;
+}
+
+.element-1 {
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.element-2 {
+  top: 20%;
+  right: 15%;
+  animation-delay: 1s;
+}
+
+.element-3 {
+  bottom: 20%;
+  left: 20%;
+  animation-delay: 2s;
 }
 
 .scroll-indicator {
@@ -353,7 +541,6 @@ body {
 /* About Section */
 .about {
   padding: 6rem 0;
-  background: rgba(0, 0, 0, 0.5);
 }
 
 .about-content {
@@ -628,7 +815,6 @@ body {
 /* Projects Section */
 .projects {
   padding: 6rem 0;
-  background: rgba(0, 0, 0, 0.5);
 }
 
 .projects-grid {
@@ -1018,7 +1204,6 @@ body {
 /* Achievements Section */
 .achievements {
   padding: 6rem 0;
-  background: rgba(0, 0, 0, 0.5);
 }
 
 .achievements-grid {
@@ -1225,6 +1410,26 @@ body {
   }
 }
 
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
 @keyframes glow {
   from {
     text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
@@ -1322,13 +1527,36 @@ body {
     font-size: 2.5rem;
   }
 
+  .hero-role {
+    justify-content: center;
+  }
+
   .hero-stats {
     justify-content: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .hero-social-links {
     justify-content: center;
     flex-wrap: wrap;
+  }
+
+  .tech-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .visual-container {
+    height: auto;
+    gap: 1.5rem;
+  }
+
+  .floating-card {
+    max-width: 100%;
   }
 
   .about-content {

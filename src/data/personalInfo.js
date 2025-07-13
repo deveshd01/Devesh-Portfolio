@@ -47,8 +47,8 @@ export const heroStats = [
     label: 'Projects'
   },
   {
-    number: '8.7',
-    label: 'CGPA'
+    number: '3',
+    label: 'Certifications'
   }
 ];
 
