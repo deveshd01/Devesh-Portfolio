@@ -304,7 +304,6 @@ const Notes = () => {
         </div>
 
         <div className="notes-grid">
-          <h3 className="all-notes-title">All Notes</h3>
           <div className="notes-list">
             {notes.map((note, index) => (
               <div key={index} className="note-card" onClick={() => handleNoteClick(note)}>
