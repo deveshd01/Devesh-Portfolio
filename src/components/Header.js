@@ -1,8 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { navItems } from '../data';
 
 const Header = ({ currentSection }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -13,7 +23,7 @@ const Header = ({ currentSection }) => {
   };
 
   return (
-    <header className="header">
+    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-container">
         <div className="logo">
           <span className="logo-text">DEVESH DHOTE</span>
@@ -28,7 +38,8 @@ const Header = ({ currentSection }) => {
                   className={`nav-link ${currentSection === item.id ? 'active' : ''}`}
                   onClick={() => scrollToSection(item.id)}
                 >
-                  {item.label}
+                  <span className="nav-link-text">{item.label}</span>
+                  <div className="nav-link-indicator"></div>
                 </button>
               </li>
             ))}
@@ -38,6 +49,7 @@ const Header = ({ currentSection }) => {
         <button
           className={`hamburger ${isMenuOpen ? 'active' : ''}`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle menu"
         >
           <span></span>
           <span></span>

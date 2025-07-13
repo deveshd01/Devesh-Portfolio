@@ -42,8 +42,7 @@ const Hero = () => {
             </div>
             
             <h1 className="hero-title">
-              <span className="title-line">{personalInfo.name.split(' ')[0]}</span>
-              <span className="title-line">{personalInfo.name.split(' ')[1]}</span>
+              <span className="title-line">{personalInfo.name.split(' ')[0]} </span>
             </h1>
             
             <div className="hero-role">
