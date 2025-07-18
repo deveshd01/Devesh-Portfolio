@@ -9,6 +9,7 @@ import Projects from './components/Projects';
 import Deployments from './components/Deployments';
 import Skills from './components/Skills';
 import Notes from './components/Notes';
+import Colab from './components/Colab';
 import Achievements from './components/Achievements';
 import Contact from './components/Contact';
 import BackgroundAnimation from './components/BackgroundAnimation';
@@ -19,7 +20,7 @@ function MainContent() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'experience', 'projects', 'deployments', 'about', 'skills', 'notes', 'achievements', 'contact'];
+      const sections = ['home', 'experience', 'projects', 'deployments', 'about', 'skills', 'notes', 'colab', 'achievements', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -60,6 +61,9 @@ function MainContent() {
         </section>
         <section id="notes">
           <Notes />
+        </section>
+        <section id="colab">
+          <Colab />
         </section>
         <section id="achievements">
           <Achievements />

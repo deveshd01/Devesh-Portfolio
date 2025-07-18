@@ -2258,3 +2258,542 @@ body {
   border-radius: 10px;
   background: #fff;
 }
+
+/* Colab Section Styles */
+.colab-section {
+  padding: 6rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.colab-section .section-subtitle {
+  text-align: center;
+  color: #ccc;
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.colab-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.colab-card {
+  background: rgba(0, 255, 255, 0.05);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.colab-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 255, 255, 0.2);
+  border-color: rgba(0, 255, 255, 0.4);
+}
+
+.colab-card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.colab-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  line-height: 1.4;
+  flex: 1;
+  padding-right: 1rem;
+}
+
+.colab-icon {
+  color: #00ffff;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.colab-card:hover .colab-icon {
+  transform: scale(1.2);
+}
+
+.colab-hover-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.colab-card:hover .colab-hover-effect {
+  opacity: 1;
+}
+
+/* Responsive Design for Colab Section */
+@media (max-width: 768px) {
+  .colab-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .colab-card {
+    padding: 1.5rem;
+  }
+  
+  .colab-title {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .colab-section {
+    padding: 4rem 0;
+  }
+  
+  .colab-card {
+    padding: 1.25rem;
+  }
+  
+  .colab-title {
+    font-size: 0.95rem;
+  }
+}
+
+/* Colab Modal Styles */
+.colab-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(15px);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+.colab-modal {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(20, 20, 20, 0.98));
+  border: 2px solid rgba(0, 255, 255, 0.3);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  max-height: 75vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 
+    0 25px 80px rgba(0, 255, 255, 0.15),
+    0 0 0 1px rgba(0, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  animation: modalSlideIn 0.4s ease-out;
+  position: relative;
+}
+
+.colab-modal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.05), transparent);
+  pointer-events: none;
+  border-radius: 20px;
+}
+
+.colab-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.08), rgba(0, 255, 255, 0.02));
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.colab-modal-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #00ffff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  flex: 1;
+  line-height: 1.2;
+}
+
+.colab-close-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  padding: 0;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  margin-left: 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.colab-close-button:hover {
+  background: rgba(0, 255, 255, 0.2);
+  color: #00ffff;
+  transform: scale(1.1) rotate(90deg);
+  border-color: rgba(0, 255, 255, 0.4);
+  box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+}
+
+.colab-modal-content {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.75rem 2rem;
+  min-height: 350px;
+  z-index: 2;
+}
+
+.colab-preview {
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  animation: contentFadeIn 0.5s ease-out 0.2s both;
+}
+
+.colab-preview-icon {
+  font-size: 3.5rem;
+  color: #00ffff;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.colab-preview-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.2), transparent);
+  border-radius: 50%;
+  z-index: -1;
+  animation: iconGlow 2s ease-in-out infinite alternate;
+}
+
+.colab-preview-icon svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
+  display: block;
+}
+
+.colab-preview-title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.colab-preview-description {
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.colab-preview-features {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.colab-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 255, 255, 0.05));
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  border-radius: 12px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.colab-feature:hover {
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.15), rgba(0, 255, 255, 0.08));
+  border-color: rgba(0, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
+}
+
+.colab-feature-icon {
+  font-size: 1.2rem;
+  filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.5));
+}
+
+.colab-open-button {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #00ffff, #ff00ff);
+  color: #000;
+  border: none;
+  border-radius: 35px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 8px 25px rgba(0, 255, 255, 0.4),
+    0 0 0 1px rgba(0, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.colab-open-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.colab-open-button:hover::before {
+  left: 100%;
+}
+
+.colab-open-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 15px 35px rgba(0, 255, 255, 0.5),
+    0 0 0 1px rgba(0, 255, 255, 0.3);
+}
+
+.colab-open-button:active {
+  transform: translateY(-1px);
+}
+
+.colab-open-button svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+}
+
+.colab-open-button:hover svg {
+  transform: translateX(5px);
+}
+
+/* Modal Animations */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes iconGlow {
+  from {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* Responsive Design for Colab Modal */
+@media (max-width: 768px) {
+  .colab-modal {
+    max-width: 90vw;
+    max-height: 85vh;
+  }
+  
+  .colab-modal-header {
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .colab-modal-title {
+    font-size: 1.3rem;
+  }
+  
+  .colab-close-button {
+    width: 38px;
+    height: 38px;
+    font-size: 1.6rem;
+  }
+  
+  .colab-modal-content {
+    padding: 2rem 1.5rem;
+    min-height: 400px;
+  }
+  
+  .colab-preview-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .colab-preview-title {
+    font-size: 1.7rem;
+  }
+  
+  .colab-preview-description {
+    font-size: 1rem;
+  }
+  
+  .colab-preview-features {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .colab-feature {
+    font-size: 0.9rem;
+    padding: 0.875rem;
+  }
+  
+  .colab-open-button {
+    padding: 1.125rem 2rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .colab-modal-overlay {
+    padding: 0.5rem;
+  }
+  
+  .colab-modal {
+    max-width: 95vw;
+    max-height: 90vh;
+    border-radius: 15px;
+  }
+  
+  .colab-modal-header {
+    padding: 1rem 1.25rem;
+  }
+  
+  .colab-modal-title {
+    font-size: 1.1rem;
+  }
+  
+  .colab-close-button {
+    width: 35px;
+    height: 35px;
+    font-size: 1.4rem;
+  }
+  
+  .colab-modal-content {
+    padding: 1.5rem 1rem;
+    min-height: 350px;
+  }
+  
+  .colab-preview-icon {
+    font-size: 3rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .colab-preview-title {
+    font-size: 1.4rem;
+  }
+  
+  .colab-preview-description {
+    font-size: 0.95rem;
+  }
+  
+  .colab-preview-features {
+    gap: 0.75rem;
+  }
+  
+  .colab-feature {
+    font-size: 0.85rem;
+    padding: 0.75rem;
+  }
+  
+  .colab-open-button {
+    padding: 1rem 1.75rem;
+    font-size: 1rem;
+  }
+}

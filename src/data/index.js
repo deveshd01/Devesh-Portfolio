@@ -17,4 +17,7 @@ export { achievements, highlightCards } from './achievements';
 export { contactInfo, socialLinks, footerMessage } from './contact';
 
 // Navigation
-export { navItems } from './navigation'; 
+export { navItems } from './navigation';
+
+// Colab
+export { colabNotebooks } from './colab'; 

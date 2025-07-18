@@ -2,13 +2,12 @@ export const experiences = [
   {
     title: 'Consultant',
     company: 'Deloitte',
-    period: 'May\'25 - PRESENT',
-    project: 'Cloud and Digital Transformation Projects',
+    period: 'May\'25 - Present',
+    project: 'EPMTool - Energy Planning & Management Web Application',
     achievements: [
-      'Leading cloud transformation initiatives for enterprise clients',
-      'Implementing digital solutions and optimizing cloud infrastructure',
-      'Collaborating with cross-functional teams to deliver high-impact projects',
-      'Providing strategic consulting on cloud adoption and digital transformation'
+      'Built a full-stack web app using React.js, .NET Web API, MS SQL, and AWS for automated demand forecasting, weather-based scheduling, and energy analytics',
+      'Added real-time dashboards, interactive filters, exportable reports (Excel/Word), event-based triggers, and parameter-based analytics for quick and informed decision-making',
+      'Used by BYPL, BRPL, reducing planning time by 80% and improving scheduling accuracy across Delhi\'s power grid'
     ]
   },
   {
