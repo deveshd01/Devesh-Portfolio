@@ -241,7 +241,7 @@ body {
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
 }
 
 .hero-container {
@@ -603,7 +603,7 @@ body {
 
 /* About Section */
 .about {
-  padding: 6rem 0;
+  padding: 3rem 0;
 }
 
 .about-content {
@@ -755,7 +755,7 @@ body {
 
 /* Experience Section */
 .experience {
-  padding: 6rem 0;
+  padding: 3rem 0;
 }
 
 .timeline {
@@ -875,9 +875,55 @@ body {
   font-weight: bold;
 }
 
+/* Experience Project Collapse/Expand Styles */
+.experience-project {
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.experience-project.collapsed {
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.experience-project.expanded {
+  max-height: 500px;
+  opacity: 1;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.experience-project.collapsed .project-title,
+.experience-project.collapsed .achievements-list {
+  display: none;
+}
+
+.experience-project.expanded .project-title,
+.experience-project.expanded .achievements-list {
+  display: block;
+}
+
+/* Add a subtle indicator for hoverable content */
+.timeline-content::after {
+  content: 'Hover to see project details';
+  position: absolute;
+  bottom: 0.5rem;
+  right: 1rem;
+  font-size: 0.7rem;
+  color: #666;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.timeline-content:hover::after {
+  opacity: 0;
+}
+
 /* Projects Section */
 .projects {
-  padding: 6rem 0;
+  padding: 3rem 0;
 }
 
 .projects-grid {
@@ -972,7 +1018,7 @@ body {
 
 /* Skills Section */
 .skills {
-  padding: 6rem 0;
+  padding: 3rem 0;
 }
 
 .skills-overview {
@@ -1271,7 +1317,7 @@ body {
 
 /* Achievements Section */
 .achievements {
-  padding: 6rem 0;
+  padding: 3rem 0;
 }
 
 .achievements-grid {
@@ -1360,7 +1406,7 @@ body {
 
 /* Contact Section */
 .contact {
-  padding: 6rem 0;
+  padding: 3rem 0;
 }
 
 .contact-content {
@@ -1743,7 +1789,7 @@ body {
 
 /* Deployments Section */
 .deployments {
-  padding: 6rem 0;
+  padding: 3rem 0;
 }
 
 .deployments-overview {
@@ -1959,7 +2005,7 @@ body {
 
 /* Notes Section */
 .notes {
-  padding: 6rem 0;
+  padding: 3rem 0;
 }
 
 .notes-overview {
