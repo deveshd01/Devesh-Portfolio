@@ -18,14 +18,29 @@ export const contactInfo = [
 
 export const socialLinks = [
   {
-    name: 'GitHub',
-    url: 'https://github.com/deveshd01',
-    icon: '🐙'
-  },
-  {
     name: 'LinkedIn',
     url: 'https://www.linkedin.com/in/deveshdhote/',
     icon: '💼'
+  },
+  {
+    name: 'GitHub',
+    url: 'https://github.com/deveshd01',
+    icon: '🐙'
+  },  
+  {
+    name: 'GeeksforGeeks',
+    url: 'https://auth.geeksforgeeks.org/user/deveshdhote',
+    icon: '💻'
+  },
+  {
+    name: 'LeetCode',
+    url: 'https://leetcode.com/DeveloperDD/',
+    icon: '🚀'
+  },
+  {
+    name: 'HackerRank',
+    url: 'https://www.hackerrank.com/profile/DeveloperDD',
+    icon: '⚡'
   }
 ];
 
