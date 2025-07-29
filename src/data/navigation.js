@@ -3,7 +3,6 @@ export const navItems = [
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
   { id: 'deployments', label: 'Deployments' },
-  { id: 'about', label: 'About' },
   { id: 'skills', label: 'Skills' },
   { id: 'notes', label: 'Notes' },
   { id: 'colab', label: 'Colab' },

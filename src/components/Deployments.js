@@ -81,25 +81,31 @@ const Deployments = () => {
               
               <p className="deployment-description">{deployment.description}</p>
               
-              <div className="deployment-technologies">
-                <h4 className="tech-label">Technologies Used:</h4>
-                <div className="tech-tags">
-                  {deployment.technologies.map((tech, techIndex) => (
-                    <span key={techIndex} className="tech-tag">{tech}</span>
-                  ))}
+              <div className="deployment-hover-details">
+                <div className="deployment-technologies">
+                  <h4 className="tech-label">Technologies Used:</h4>
+                  <div className="tech-tags">
+                    {deployment.technologies.map((tech, techIndex) => (
+                      <span key={techIndex} className="tech-tag">{tech}</span>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="deployment-features">
+                  <h4 className="features-label">Key Features:</h4>
+                  <ul className="features-list">
+                    {deployment.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="feature-item">
+                        <span className="feature-bullet">•</span>
+                        <span className="feature-text">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-              
-              <div className="deployment-features">
-                <h4 className="features-label">Key Features:</h4>
-                <ul className="features-list">
-                  {deployment.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="feature-item">
-                      <span className="feature-bullet">•</span>
-                      <span className="feature-text">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+
+              <div className="deployment-hover-indicator">
+                <span className="hover-text">Hover for details</span>
               </div>
             </div>
           ))}

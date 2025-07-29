@@ -24,13 +24,16 @@ const Projects = () => {
               <div className="project-content">
                 <p className="project-description">{project.description}</p>
                 
-                <div className="project-features">
-                  {project.features.map((feature, idx) => (
-                    <div key={idx} className="feature-item">
-                      <span className="feature-bullet">•</span>
-                      <span className="feature-text">{feature}</span>
-                    </div>
-                  ))}
+                <div className="project-hover-details">
+                  <div className="project-features">
+                    <h4 className="features-title">Key Features:</h4>
+                    {project.features.map((feature, idx) => (
+                      <div key={idx} className="feature-item">
+                        <span className="feature-bullet">•</span>
+                        <span className="feature-text">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
                 
                 <div className="project-technologies">
@@ -38,6 +41,10 @@ const Projects = () => {
                     <span key={idx} className="tech-tag">{tech}</span>
                   ))}
                 </div>
+              </div>
+              
+              <div className="hover-indicator">
+                <span className="hover-text">Hover for details</span>
               </div>
             </div>
           ))}
