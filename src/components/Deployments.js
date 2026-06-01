@@ -13,7 +13,7 @@ const Deployments = () => {
     {
       title: 'Portfolio Website',
       description: 'Personal portfolio website built with modern technologies',
-      url: 'https://devesh-portfolio.com',
+      url: 'https://main.d3kmzf3zr8insf.amplifyapp.com/',
       status: 'Live',
       technologies: ['React', 'CSS3', 'JavaScript', 'Netlify'],
       features: ['Responsive Design', 'Dark Theme', 'Smooth Animations', 'Contact Form']

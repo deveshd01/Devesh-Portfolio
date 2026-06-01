@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 
 const Notes = () => {
   const [selectedNote, setSelectedNote] = useState(null);
@@ -330,27 +331,31 @@ const Notes = () => {
           </div>
         </div>
 
-        {/* Google Docs Modal */}
-        {selectedNote && (
-          <div className="note-modal-overlay" onClick={closeNote}>
-            <div className="note-modal" onClick={(e) => e.stopPropagation()}>
-              <div className="modal-header">
-                <h3 className="modal-title">{selectedNote.title}</h3>
-                <button className="close-button" onClick={closeNote}>×</button>
+        {/* Google Docs Modal — portaled to escape main stacking context */}
+        {selectedNote &&
+          createPortal(
+            <div className="note-modal-overlay" onClick={closeNote}>
+              <div className="note-modal" onClick={(e) => e.stopPropagation()}>
+                <div className="modal-header">
+                  <h3 className="modal-title">{selectedNote.title}</h3>
+                  <button className="close-button" onClick={closeNote} type="button">
+                    ×
+                  </button>
+                </div>
+                <div className="modal-content">
+                  <iframe
+                    src={`${selectedNote.googleDocUrl}?usp=sharing&rm=minimal`}
+                    title={selectedNote.title}
+                    width="100%"
+                    height="600px"
+                    frameBorder="0"
+                    allowFullScreen
+                  />
+                </div>
               </div>
-              <div className="modal-content">
-                <iframe
-                  src={`${selectedNote.googleDocUrl}?usp=sharing&rm=minimal`}
-                  title={selectedNote.title}
-                  width="100%"
-                  height="600px"
-                  frameBorder="0"
-                  allowFullScreen
-                />
-              </div>
-            </div>
-          </div>
-        )}
+            </div>,
+            document.body
+          )}
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
 // Personal Information
-export { personalInfo, academicData, areasOfInterest, heroStats, techStack } from './personalInfo';
+export { personalInfo, academicData, areasOfInterest, heroStats, techStack, specializations } from './personalInfo';
 
 // Experience
 export { experiences } from './experience';

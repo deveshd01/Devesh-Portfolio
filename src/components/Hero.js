@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { personalInfo, heroStats, techStack, socialLinks } from '../data';
+import { personalInfo, heroStats, techStack, socialLinks, specializations } from '../data';
 
 const Hero = () => {
   const textRef = useRef(null);
@@ -60,7 +60,7 @@ const Hero = () => {
             <div className="hero-highlights">
               <div className="tech-highlight">
                 <span className="highlight-label">Specializing in:</span>
-                <span className="highlight-tech">{techStack[currentTechIndex]}</span>
+                <span className="highlight-tech">{specializations[currentTechIndex]}</span>
               </div>
             </div>
 

@@ -1,13 +1,27 @@
 export const experiences = [
   {
-    title: 'Consultant',
+    title: 'AI/ML Deployment Consultant',
     company: 'Deloitte',
     period: 'May\'25 - Present',
-    project: 'EPMTool - Energy Planning & Management Web Application',
+    project: 'Power Management & Energy Planning',
     achievements: [
-      'Built a full-stack web app using React.js, .NET Web API, MS SQL, and AWS for automated demand forecasting, weather-based scheduling, and energy analytics',
-      'Added real-time dashboards, interactive filters, exportable reports (Excel/Word), event-based triggers, and parameter-based analytics for quick and informed decision-making',
-      'Used by BYPL, BRPL, reducing planning time by 80% and improving scheduling accuracy across Delhi\'s power grid'
+      'Managed team-wide deployments and cloud infrastructure across AWS and OCI accounts, reducingcloud costs by 40% and improving code efficiency by 20%.',
+      'Led end-to-end delivery through project planning, DB design, architecture design, and cloud cost planning for endto-end solution delivery.',
+      'Handled client interactions and team management to ensure clear requirements, smooth execution, and on-time delivery.',
+      'Delivered production-grade 10+ full-stack applications and ML-based solutions for major power utilities',
+      'Designed tools for weather, price, and demand forecasting, along with power scheduling workflows'
+    ]
+  },
+  {
+    title: 'Founder\'s Office (FO)',
+    company: 'Shutter Labs',
+    period: 'Oct\'24 - Aug\'25',
+    project: 'AI Product Photography',
+    achievements: [
+      'Built a platform powered by custom-trained generative models for branded visual asset creation at scale.',
+      'Delivered text-to-image generation, in-place image editing, and context-aware background synthesis tailored to product placement, camera angle, and lighting setup.',
+      'Enabled 3D-aware composition control to generate studio-quality product visuals from custom viewpoints, reducing dependence on traditional photo shoots.',
+      'Tech stack used: React, Flask, PostgreSQL, S3, AWS, PyTorch, Diffusers, Stable Diffusion, LoRA.'
     ]
   },
   {

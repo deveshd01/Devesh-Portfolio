@@ -53,9 +53,17 @@ export const heroStats = [
 ];
 
 export const techStack = [
+  'Cloud Architecture',
+  'AI/ML',
   'Python',
-  'React',
-  'Java',
-  'AWS',
-  'ML'
+  'React-Java',
+  'Automation'
 ]; 
+
+export const specializations = [
+  'AI/ML Cloud Deployment',
+  'Cloud Architecture optimization',
+  'React-Java Full Stack',
+  'Forward Deployed Engineer',
+  'AI/ML Workflows'
+];
