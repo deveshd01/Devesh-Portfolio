@@ -1,40 +1,8 @@
 import React from 'react';
+import { deployments } from '../data';
 
 const Deployments = () => {
-  const deployments = [
-    {
-      title: 'E-Commerce Platform',
-      description: 'Full-stack e-commerce application with React frontend and Node.js backend',
-      url: 'https://example-ecommerce.com',
-      status: 'Live',
-      technologies: ['React', 'Node.js', 'MongoDB', 'AWS'],
-      features: ['User Authentication', 'Payment Integration', 'Admin Dashboard', 'Real-time Updates']
-    },
-    {
-      title: 'Portfolio Website',
-      description: 'Personal portfolio website built with modern technologies',
-      url: 'https://main.d3kmzf3zr8insf.amplifyapp.com/',
-      status: 'Live',
-      technologies: ['React', 'CSS3', 'JavaScript', 'Netlify'],
-      features: ['Responsive Design', 'Dark Theme', 'Smooth Animations', 'Contact Form']
-    },
-    {
-      title: 'Machine Learning API',
-      description: 'RESTful API for machine learning model predictions',
-      url: 'https://ml-api.example.com',
-      status: 'Live',
-      technologies: ['Python', 'Flask', 'TensorFlow', 'Docker'],
-      features: ['Model Serving', 'API Documentation', 'Rate Limiting', 'Monitoring']
-    },
-    {
-      title: 'Task Management App',
-      description: 'Collaborative task management application for teams',
-      url: 'https://taskmanager.example.com',
-      status: 'Live',
-      technologies: ['React', 'Spring Boot', 'PostgreSQL', 'Redis'],
-      features: ['Real-time Collaboration', 'File Upload', 'Notifications', 'Analytics']
-    }
-  ];
+  const liveCount = deployments.filter((d) => d.status === 'Live').length;
 
   return (
     <section className="deployments">
@@ -48,7 +16,7 @@ const Deployments = () => {
           <div className="deployments-intro">
             <h3 className="deployments-subtitle">Production Applications</h3>
             <p className="deployments-description">
-              Explore my live applications and deployed projects that demonstrate real-world implementation 
+              Explore my live applications and deployed projects that demonstrate real-world implementation
               of modern technologies and best practices in software development.
             </p>
           </div>
@@ -66,21 +34,23 @@ const Deployments = () => {
                     </span>
                   </div>
                 </div>
-                <div className="deployment-url">
-                  <a 
-                    href={deployment.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="url-link"
-                  >
-                    <span>Visit Site</span>
-                    <span className="url-arrow">→</span>
-                  </a>
-                </div>
+                {deployment.url && (
+                  <div className="deployment-url">
+                    <a
+                      href={deployment.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="url-link"
+                    >
+                      <span>Visit Site</span>
+                      <span className="url-arrow">→</span>
+                    </a>
+                  </div>
+                )}
               </div>
-              
+
               <p className="deployment-description">{deployment.description}</p>
-              
+
               <div className="deployment-hover-details">
                 <div className="deployment-technologies">
                   <h4 className="tech-label">Technologies Used:</h4>
@@ -90,7 +60,7 @@ const Deployments = () => {
                     ))}
                   </div>
                 </div>
-                
+
                 <div className="deployment-features">
                   <h4 className="features-label">Key Features:</h4>
                   <ul className="features-list">
@@ -115,7 +85,7 @@ const Deployments = () => {
           <div className="stat-card">
             <div className="stat-icon">🚀</div>
             <h4 className="stat-title">Live Applications</h4>
-            <p className="stat-number">4</p>
+            <p className="stat-number">{liveCount}</p>
           </div>
           <div className="stat-card">
             <div className="stat-icon">⚡</div>
@@ -133,4 +103,4 @@ const Deployments = () => {
   );
 };
 
-export default Deployments; 
+export default Deployments;

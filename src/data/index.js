@@ -7,6 +7,9 @@ export { experiences } from './experience';
 // Projects
 export { projects } from './projects';
 
+// Deployments
+export { deployments } from './deployments';
+
 // Skills
 export { skillCategories, techCircles } from './skills';
 

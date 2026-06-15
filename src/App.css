@@ -2539,6 +2539,11 @@ main {
   color: #000;
 }
 
+.status-badge.pre-launch {
+  background: linear-gradient(135deg, #ffaa00, #ff8800);
+  color: #000;
+}
+
 .deployment-url {
   display: flex;
   align-items: center;
