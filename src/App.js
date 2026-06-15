@@ -19,7 +19,7 @@ function MainContent() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'experience', 'projects', 'deployments', 'skills', 'notes', 'colab', 'achievements', 'contact'];
+      const sections = ['home', 'experience', 'deployments', 'projects', 'skills', 'notes', 'colab', 'achievements', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -46,11 +46,11 @@ function MainContent() {
         <section id="experience">
           <Experience />
         </section>
-        <section id="projects">
-          <Projects />
-        </section>
         <section id="deployments">
           <Deployments />
+        </section>
+        <section id="projects">
+          <Projects />
         </section>
         <section id="skills">
           <Skills />

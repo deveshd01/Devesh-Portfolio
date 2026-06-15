@@ -1,11 +1,10 @@
 import React from 'react';
-import { contactInfo, socialLinks, footerMessage, personalInfo, academicData, areasOfInterest } from '../data';
+import { contactInfo, socialLinks, footerMessage, personalInfo, academicData } from '../data';
 
 const Contact = () => {
   return (
     <section className="contact">
       <div className="container">
-        {/* About Me Section */}
         <div className="section-header">
           <h2 className="section-title">About Me</h2>
           <div className="section-line"></div>
@@ -16,25 +15,10 @@ const Contact = () => {
             <p className="about-description">
               {personalInfo.about}
             </p>
-            
-            <div className="contact-info">
-              <div className="contact-item">
-                <span className="contact-label">Email:</span>
-                <a href={`mailto:${personalInfo.email}`} className="contact-link">
-                  {personalInfo.email}
-                </a>
-              </div>
-              <div className="contact-item">
-                <span className="contact-label">Phone:</span>
-                <a href={`tel:${personalInfo.phone}`} className="contact-link">
-                  {personalInfo.phone}
-                </a>
-              </div>
-              <div className="contact-item">
-                <span className="contact-label">Location:</span>
-                <span className="contact-text">{personalInfo.location}</span>
-              </div>
-            </div>
+            <p className="contact-description">
+              I'm always open to discussing new opportunities, interesting projects,
+              or just having a chat about technology and innovation.
+            </p>
           </div>
 
           <div className="about-cards">
@@ -53,35 +37,12 @@ const Contact = () => {
                 ))}
               </div>
             </div>
-
-            <div className="interests-card">
-              <h3 className="card-title">Areas of Interest</h3>
-              <div className="interests-grid">
-                {areasOfInterest.map((interest, index) => (
-                  <div key={index} className="interest-item">
-                    <span className="interest-icon">•</span>
-                    <span className="interest-text">{interest}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
-        </div>
-
-        {/* Contact Section */}
-        <div className="section-header" style={{ marginTop: '4rem' }}>
-          <h2 className="section-title">Get In Touch</h2>
-          <div className="section-line"></div>
         </div>
 
         <div className="contact-content">
           <div className="contact-info-section">
             <h3 className="contact-subtitle">Let's Connect</h3>
-            <p className="contact-description">
-              I'm always open to discussing new opportunities, interesting projects, 
-              or just having a chat about technology and innovation.
-            </p>
-            
             <div className="contact-details">
               {contactInfo.map((info, index) => (
                 <div key={index} className="contact-detail">
@@ -130,4 +91,4 @@ const Contact = () => {
   );
 };
 
-export default Contact; 
+export default Contact;

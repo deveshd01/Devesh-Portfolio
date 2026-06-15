@@ -2267,6 +2267,7 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
+  margin-top: 3rem;
   margin-bottom: 4rem;
 }
 
