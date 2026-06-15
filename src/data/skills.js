@@ -23,10 +23,10 @@ export const skillCategories = [
 ];
 
 export const techCircles = [
+  { name: 'ML', type: 'secondary' },
+  { name: 'AWS', type: 'primary' },
   { name: 'Python', type: 'primary' },
   { name: 'React', type: 'secondary' },
   { name: 'Java', type: 'tertiary' },
-  { name: 'AWS', type: 'primary' },
-  { name: 'ML', type: 'secondary' },
   { name: 'SQL', type: 'tertiary' }
 ]; 

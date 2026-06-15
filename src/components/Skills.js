@@ -88,11 +88,11 @@ const Skills = () => {
             {techCircles.map((tech, index) => (
               <div key={index} className={`tech-highlight-card ${tech.type}`}>
                 <div className="tech-icon">
+                  {tech.name === 'ML' && '🤖'}
+                  {tech.name === 'AWS' && '☁️'}
                   {tech.name === 'Python' && '🐍'}
                   {tech.name === 'React' && '⚛️'}
                   {tech.name === 'Java' && '☕'}
-                  {tech.name === 'AWS' && '☁️'}
-                  {tech.name === 'ML' && '🤖'}
                   {tech.name === 'SQL' && '🗄️'}
                 </div>
                 <span className="tech-name">{tech.name}</span>

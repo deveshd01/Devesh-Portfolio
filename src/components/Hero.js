@@ -75,8 +75,10 @@ const Hero = () => {
 
             <div className="hero-actions">
               <a
-                href="/CV_Devesh.pdf"
+                href={`${process.env.PUBLIC_URL}/CV_Devesh.pdf`}
                 download="CV_Devesh.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="cv-download-btn"
               >
                 <span className="btn-icon">🚀</span>
