@@ -2461,6 +2461,36 @@ main {
   line-height: 1.6;
 }
 
+.deployments-test-note {
+  max-width: 640px;
+  margin: 1.5rem auto 0;
+  padding: 1rem 1.25rem;
+  background: rgba(0, 255, 255, 0.08);
+  border: 1px solid rgba(0, 255, 255, 0.25);
+  border-radius: 10px;
+  font-size: clamp(0.95rem, 2vw, 1rem);
+  color: #ddd;
+  line-height: 1.6;
+}
+
+.deployments-test-note strong {
+  color: #00ffff;
+}
+
+.deployments-credentials {
+  display: block;
+  margin-top: 0.5rem;
+  color: #bbb;
+}
+
+.deployments-credentials code {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  color: #66ffff;
+  font-family: 'Courier New', monospace;
+}
+
 .deployments-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
