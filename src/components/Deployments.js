@@ -60,7 +60,7 @@ const Deployments = () => {
               of modern technologies and best practices in software development.
             </p>
             <div className="deployments-test-note2">
-              <strong>Note:</strong> All deployed websites have 1 test user to explore all functionalities.
+              <strong>Note2:</strong> All deployed websites have 1 test user to explore all functionalities.
               <span className="deployments-credentials">
                 username = <code>test@gmail.com</code> &amp; password = <code>test</code>
               </span>
