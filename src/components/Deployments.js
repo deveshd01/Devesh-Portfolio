@@ -1,11 +1,51 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { deployments } from '../data';
 
 const Deployments = () => {
   const liveCount = deployments.filter((d) => d.status === 'Live').length;
+  const sectionRef = useRef(null);
+  const [showNote, setShowNote] = useState(false);
+  const hasShownRef = useRef(false);
+
+  useEffect(() => {
+    const node = sectionRef.current;
+    if (!node) return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasShownRef.current) {
+          hasShownRef.current = true;
+          setShowNote(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section className="deployments">
+    <section className="deployments" ref={sectionRef}>
+      {showNote && (
+        <div className="deployments-note-overlay" onClick={() => setShowNote(false)}>
+          <div className="deployments-test-note" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              className="deployments-note-close"
+              aria-label="Close note"
+              onClick={() => setShowNote(false)}
+            >
+              ×
+            </button>
+            <strong>Note:</strong> All deployed websites have 1 test user to explore all functionalities.
+            <span className="deployments-credentials">
+              username = <code>test@gmail.com</code> &amp; password = <code>test</code>
+            </span>
+          </div>
+        </div>
+      )}
+
       <div className="container">
         <div className="section-header">
           <h2 className="section-title">Live Deployments</h2>
@@ -19,7 +59,7 @@ const Deployments = () => {
               Explore my live applications and deployed projects that demonstrate real-world implementation
               of modern technologies and best practices in software development.
             </p>
-            <div className="deployments-test-note">
+            <div className="deployments-test-note2">
               <strong>Note:</strong> All deployed websites have 1 test user to explore all functionalities.
               <span className="deployments-credentials">
                 username = <code>test@gmail.com</code> &amp; password = <code>test</code>
