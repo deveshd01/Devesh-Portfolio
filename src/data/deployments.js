@@ -142,6 +142,20 @@ export const deployments = [
     ]
   },
   {
+    title: 'Chat Bot Wrapper',
+    description:
+      'A web-based chatbot interface that wraps LLM APIs behind a clean, user-friendly chat experience, letting users hold multi-turn conversations with AI models through a simplified web interface.',
+    url: 'https://main.d2vm91qz7exvlv.amplifyapp.com/',
+    status: 'Live',
+    technologies: ['React', 'LLM API', 'REST API', 'Amplify'],
+    features: [
+      'Conversational chat interface',
+      'LLM API integration',
+      'Multi-turn conversations',
+      'Simplified web interface'
+    ]
+  },
+  {
     title: 'System Maintenance',
     description:
       'Maintenance screen to redirect users during website maintenance or downtime.',
