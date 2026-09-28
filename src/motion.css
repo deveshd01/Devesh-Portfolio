@@ -1,0 +1,279 @@
+/* ==========================================================
+   Motion layer — scroll reveal, card tilt, progress, glow
+   Driven by components/MotionEffects.js
+   ========================================================== */
+
+/* ---------- Scroll progress bar ---------- */
+.fx-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 1200;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, #00ffff, #ff00ff, #00ffff);
+  background-size: 200% 100%;
+  animation: fxGradientFlow 4s linear infinite;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.6);
+  pointer-events: none;
+}
+
+/* ---------- Cursor glow ---------- */
+.fx-cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 520px;
+  height: 520px;
+  margin: -260px 0 0 -260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.09), rgba(255, 0, 255, 0.05) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+
+@media (pointer: coarse) {
+  .fx-cursor-glow {
+    display: none;
+  }
+}
+
+/* ---------- Back to top ---------- */
+.fx-back-to-top {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  color: #fff;
+  cursor: pointer;
+  z-index: 1050;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transform: translateY(20px) scale(0.8);
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+
+.fx-back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.fx-back-to-top:hover {
+  box-shadow: 0 0 24px rgba(0, 255, 255, 0.45);
+  transform: translateY(-4px) scale(1.05);
+}
+
+.fx-back-to-top svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.fx-ring-track {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.12);
+  stroke-width: 3;
+}
+
+.fx-ring-fill {
+  fill: none;
+  stroke: #00ffff;
+  stroke-width: 3;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.1s linear;
+  filter: drop-shadow(0 0 4px rgba(0, 255, 255, 0.7));
+}
+
+.fx-arrow {
+  position: relative;
+  font-size: 1.2rem;
+  font-weight: 700;
+  transition: transform 0.3s ease;
+}
+
+.fx-back-to-top:hover .fx-arrow {
+  animation: fxArrowBounce 0.8s ease infinite;
+}
+
+@media (max-width: 480px) {
+  .fx-back-to-top {
+    right: 1rem;
+    bottom: 1rem;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* ---------- Scroll reveal ---------- */
+.fx-motion .fx-reveal {
+  opacity: 0;
+  translate: 0 48px;
+  filter: blur(6px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--fx-delay, 0ms),
+    translate 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--fx-delay, 0ms),
+    filter 0.9s ease var(--fx-delay, 0ms),
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease,
+    background-color 0.35s ease;
+}
+
+.fx-motion .fx-reveal.fx-in {
+  opacity: 1;
+  translate: 0 0;
+  filter: none;
+}
+
+/* Timeline items slide in from their side */
+.fx-motion .timeline-item.fx-reveal:nth-child(odd) {
+  translate: -60px 0;
+}
+
+.fx-motion .timeline-item.fx-reveal:nth-child(even) {
+  translate: 60px 0;
+}
+
+.fx-motion .timeline-item.fx-reveal.fx-in {
+  translate: 0 0;
+}
+
+/* These used on-load keyframes; hand control to the scroll reveal instead */
+.fx-motion .timeline-item.fx-reveal,
+.fx-motion .project-card.fx-reveal {
+  animation: none;
+}
+
+.fx-motion .timeline-item.fx-reveal:not(:hover),
+.fx-motion .project-card.fx-reveal:not(:hover) {
+  transform: none;
+}
+
+/* Section header: underline grows in after the title */
+.fx-motion .section-header.fx-reveal .section-line {
+  transform: scaleX(0);
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.3s;
+}
+
+.fx-motion .section-header.fx-in .section-line {
+  transform: scaleX(1);
+}
+
+/* ---------- Living gradients ---------- */
+.section-title {
+  background-image: linear-gradient(90deg, #00ffff, #ff00ff, #00ffff);
+  background-size: 200% auto;
+  animation: fxGradientFlow 6s linear infinite;
+}
+
+.section-line {
+  background-image: linear-gradient(90deg, #00ffff, #ff00ff, #00ffff);
+  background-size: 200% auto;
+  animation: fxGradientFlow 3s linear infinite;
+  box-shadow: 0 0 12px rgba(0, 255, 255, 0.4);
+}
+
+.title-line {
+  background-image: linear-gradient(90deg, #00ffff, #ff00ff, #00ffff);
+  background-size: 200% auto;
+  animation: glow 2s ease-in-out infinite alternate, fxGradientFlow 5s linear infinite;
+}
+
+/* ---------- Card tilt + spotlight ---------- */
+html .fx-tilting,
+html .fx-tilting:hover {
+  background-image: radial-gradient(
+    480px circle at var(--fx-mx, 50%) var(--fx-my, 50%),
+    rgba(0, 255, 255, 0.14),
+    rgba(255, 0, 255, 0.06) 35%,
+    transparent 65%
+  );
+}
+
+html.fx-motion .fx-tilting:hover {
+  transform: perspective(1000px) rotateX(var(--fx-rx, 0deg)) rotateY(var(--fx-ry, 0deg)) translateY(-8px);
+  transition:
+    opacity 0.9s ease,
+    translate 0.9s ease,
+    filter 0.9s ease,
+    transform 0.12s ease-out,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+/* ---------- Buttons & badges ---------- */
+.cv-download-btn {
+  overflow: hidden;
+}
+
+.cv-download-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-20deg);
+  animation: fxShine 3.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.status-badge.live {
+  animation: fxLivePulse 2.2s ease-out infinite;
+}
+
+.url-link .url-arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.url-link:hover .url-arrow {
+  transform: translateX(5px);
+}
+
+/* ---------- Keyframes ---------- */
+@keyframes fxGradientFlow {
+  from { background-position: 0% 50%; }
+  to { background-position: 200% 50%; }
+}
+
+@keyframes fxShine {
+  0%, 60% { left: -60%; }
+  100% { left: 130%; }
+}
+
+@keyframes fxLivePulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.55); }
+  70% { box-shadow: 0 0 0 8px rgba(0, 255, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
+}
+
+@keyframes fxArrowBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* ---------- Respect reduced motion ---------- */
+/* Reveal/tilt/glow are skipped in JS when reduced motion is requested */
+@media (prefers-reduced-motion: reduce) {
+  .fx-cursor-glow {
+    display: none;
+  }
+}

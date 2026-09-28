@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+import './motion.css';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Experience from './components/Experience';
@@ -12,6 +13,7 @@ import Colab from './components/Colab';
 import Achievements from './components/Achievements';
 import Contact from './components/Contact';
 import BackgroundAnimation from './components/BackgroundAnimation';
+import MotionEffects from './components/MotionEffects';
 
 function MainContent() {
   const [currentSection, setCurrentSection] = useState('home');
@@ -37,6 +39,7 @@ function MainContent() {
   return (
     <div className="App">
       <BackgroundAnimation />
+      <MotionEffects />
       <Header currentSection={currentSection} />
       <main>
         <section id="home">
